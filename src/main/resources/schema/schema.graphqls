@@ -1,0 +1,43 @@
+schema {
+    query: Query
+    #mutation: Mutation
+}
+
+type Query {
+    #movie(id: ID): Movie
+    movies(sort: SortType, page: Int): [Movie]!
+    #likes: [Movie]
+}
+
+#type Mutation {
+#    toggleLike(id: ID!): Movie
+#    login(email: String!): String
+#}
+
+enum SortType {
+    POPULARITY
+    RELEASE_DATE
+}
+
+type Movie {
+    id: ID
+    title: String
+    overview: String
+    score: Float
+    voteCount: Int
+    popularity: Float
+    poster(size: Int): String
+    genres: [String]!
+    releaseDate: String
+    cast: [Cast]!
+    isLiked: Boolean
+}
+
+
+type Cast {
+    id: ID
+    name: String!
+    photo(size: Int): String
+    gender: String
+    character: String
+}
