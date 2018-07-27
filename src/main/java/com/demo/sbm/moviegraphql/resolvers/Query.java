@@ -18,31 +18,38 @@ import java.util.stream.Collectors;
 @Component
 public class Query implements GraphQLQueryResolver {
 
-    @Autowired
-    CastModel castModel;
-
-    @Autowired
-    MovieModel movieModel;
-
-    @Autowired
-    GeneraModel generaModel;
-
+    private CastModel castModel;
+    private MovieModel movieModel;
+    private GeneraModel generaModel;
 
     public List<Movie> movies(SortType sortType, int page) {
 
 
         List<TMDBMovie> tmdbMovies = movieModel.getMovies(sortType.toTMDBSortType(),page);
-        List<Movie> movies = tmdbMovies.stream().map(s -> {
+        return tmdbMovies.stream().map(s -> {
             Movie m  = new Movie(s);
             List<String> allGeneraForMovie = s.getGenreIds().stream().map(mv -> this.generaModel.getGenera(mv)).collect(Collectors.toList());
             m.setGenres(allGeneraForMovie);
-            List<Cast> castList = castModel.getCastForMovie(s.getId().toString()).stream().map(cv -> new Cast(cv)).collect(Collectors.toList());
+            List<Cast> castList = castModel.getCastForMovie(s.getId().toString()).stream().map(Cast::new).collect(Collectors.toList());
             m.setCast(castList);
             return m;
         }).collect(Collectors.toList());
 
-        return movies;
     }
 
 
+    @Autowired
+    public void setCastModel(CastModel castModel) {
+        this.castModel = castModel;
+    }
+
+    @Autowired
+    public void setMovieModel(MovieModel movieModel) {
+        this.movieModel = movieModel;
+    }
+
+    @Autowired
+    public void setGeneraModel(GeneraModel generaModel) {
+        this.generaModel = generaModel;
+    }
 }
