@@ -1,7 +1,6 @@
 package com.demo.sbm.moviegraphql.models.Impl;
 
 
-import com.demo.sbm.moviegraphql.models.MovieModel;
 import com.demo.sbm.moviegraphql.models.pojo.TMDBMovie;
 import com.demo.sbm.moviegraphql.models.pojo.TMDBSortType;
 import org.junit.Test;
