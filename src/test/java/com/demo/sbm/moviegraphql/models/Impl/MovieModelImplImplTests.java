@@ -16,10 +16,10 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @TestPropertySource(locations="classpath:test.properties")
-public class MovieModelImplTests {
+public class MovieModelImplImplTests {
 
     @Autowired
-    MovieModel movieModel;
+    MovieModelImpl movieModel;
 
     @Test
     public void testMovieModel() {

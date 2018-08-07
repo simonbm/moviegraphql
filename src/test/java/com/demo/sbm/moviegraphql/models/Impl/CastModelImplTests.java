@@ -1,7 +1,6 @@
 package com.demo.sbm.moviegraphql.models.Impl;
 
 import com.demo.sbm.moviegraphql.models.CastModel;
-import com.demo.sbm.moviegraphql.models.MovieModel;
 import com.demo.sbm.moviegraphql.models.pojo.TMDBCast;
 import com.demo.sbm.moviegraphql.models.pojo.TMDBMovie;
 import com.demo.sbm.moviegraphql.models.pojo.TMDBSortType;
@@ -24,7 +23,7 @@ public class CastModelImplTests {
     CastModel castModel;
 
     @Autowired
-    MovieModel movieModel;
+    MovieModelImpl movieModel;
 
     @Test
     public void testGetCastForMovie() {

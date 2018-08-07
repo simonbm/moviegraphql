@@ -1,6 +1,7 @@
 package com.demo.sbm.moviegraphql.models.Impl;
 
 import com.demo.sbm.moviegraphql.models.CastModel;
+import com.demo.sbm.moviegraphql.models.MovieModel;
 import com.demo.sbm.moviegraphql.models.pojo.TMDBMovie;
 import com.demo.sbm.moviegraphql.models.pojo.MovieRoot;
 import com.demo.sbm.moviegraphql.models.pojo.TMDBSortType;
@@ -17,11 +18,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Component
-public class MovieModel {
-    private static final Logger log = LoggerFactory.getLogger(MovieModel.class);
+public class MovieModelImpl implements MovieModel {
+    private static final Logger log = LoggerFactory.getLogger(MovieModelImpl.class);
 
 
     private CastModel castModel;

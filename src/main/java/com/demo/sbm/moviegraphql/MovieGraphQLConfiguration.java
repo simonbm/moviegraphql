@@ -7,7 +7,6 @@ import com.demo.sbm.moviegraphql.models.Impl.CastModelImpl;
 import com.demo.sbm.moviegraphql.models.Impl.GeneraModelImpl;
 import com.demo.sbm.moviegraphql.models.Impl.MovieModelImpl;
 import com.demo.sbm.moviegraphql.models.MovieModel;
-import com.demo.sbm.moviegraphql.models.pojo.GeneraRoot;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
